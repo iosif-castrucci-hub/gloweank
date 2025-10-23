@@ -202,3 +202,26 @@ body {
     gap: 1rem;
   }
 }
+
+/* ===== Brand alignment + stars ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.stars {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: gold;
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.7);
+}
+
+/* Responsiveness for stars */
+@media (max-width: 480px) {
+  .stars {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+}
+
