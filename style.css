@@ -7,12 +7,21 @@
 }
 
 body {
-  background: linear-gradient(135deg, #8A2BE2, #00BFFF);
+  background: linear-gradient(135deg, #8A2BE2, #00BFFF, #6A5ACD, #1E90FF);
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease infinite;
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* ===== Gradient Animation ===== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ===== Glass Effect ===== */
@@ -28,29 +37,38 @@ body {
 /* ===== Navbar ===== */
 .navbar {
   width: 90%;
-  margin: 1.5rem auto;
+  max-width: 1100px;
+  margin: 1.5rem auto 0 auto;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
-  width: 130px;
+  width: 120px;
 }
 
 /* ===== Hero Section ===== */
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
   width: 90%;
   max-width: 700px;
+  margin: auto;
+  padding: 5rem 2rem;
+  flex: 1;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .hero p {
@@ -80,27 +98,40 @@ body {
 .btn.primary {
   background: linear-gradient(135deg, #8A2BE2, #00BFFF);
   border: none;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* ===== Features ===== */
+.btn.primary:hover {
+  background: linear-gradient(135deg, #7B68EE, #1E90FF);
+  transform: translateY(-3px);
+}
+
+/* ===== Features Section ===== */
 .features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   width: 90%;
-  margin: 3rem auto;
+  max-width: 1000px;
+  margin: 4rem auto;
 }
 
 .card {
-  flex: 1 1 250px;
+  flex: 1 1 260px;
   padding: 2rem;
   text-align: center;
+  min-width: 260px;
 }
 
 .card h2 {
   margin-bottom: 0.8rem;
   font-weight: 600;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== Footer ===== */
@@ -110,5 +141,64 @@ body {
   padding: 1.5rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
+  margin-top: auto;
   margin-bottom: 2rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.4rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== Small Devices ===== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .features {
+    gap: 1rem;
+  }
 }
